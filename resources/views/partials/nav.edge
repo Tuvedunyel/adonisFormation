@@ -1,0 +1,15 @@
+<header class="w-full bg-amber-950 pt-5 pb-5">
+  <nav class="w-full">
+    <ul class="w-full flex justify-center items-center gap-6">
+      <li>
+        <a class="text-white text-xl" href="{{ route('home') }}">Accueil</a>
+      </li>
+      <li>
+        <a class="text-white text-xl" href="{{ route('movies.show', { slug: 'my-awesome-movie' }) }}">Movie 1</a>
+      </li>
+      <li>
+        <a class="text-white text-xl" href="{{ route('movies.show', { slug: 'another-awesome-movie' }) }}">Movie 2</a>
+      </li>
+    </ul>
+  </nav>
+</header>
