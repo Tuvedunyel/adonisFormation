@@ -17,8 +17,14 @@
        </div>
   </div>
   <div class="fixed bottom-0 right-3 flex gap-3">
-    @button({ href: '#', class: "rounded-b-none" })
-      Flush Redis DB
-    @end
+{{--    <form action="{{ route('redis.flush', {}, { qs: { _method: 'DELETE' } }) }}" method="POST">--}}
+    <form action="" method="POST">
+      {{ csrfField() }}
+
+      @button({ type: "submit", class: "rounded-b-none" })
+        @svg('ph:trash', { class: 'mr-2' })
+        Flush Redis DB
+      @end
+    </form>
   </div>
 @end
