@@ -15,7 +15,8 @@ export default class MoviesController {
     //   subTitle: 'Bienvenue, venez visiter ma bibliothèque de super films.',
     // })
 
-    const movie = await Movie.find(params.slug)
+    // const movie = await Movie.find(params.id)
+    const movie = await Movie.findByOrFail('slug', params.slug)
 
     view.share({ movie })
 
