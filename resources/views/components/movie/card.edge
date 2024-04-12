@@ -2,7 +2,7 @@
 
 <div {{ $props.merge({ class: [className] }).except(['movie']).toAttrs()}}>
     <div class="relative">
-        <img src="https://picsum.photos/650/400?v={{ movie.slug }}" class="w-full h-auto object-center
+        <img src="{{ movie.posterUrl }}" class="w-full h-auto object-center
         object-fill" alt="Lorem picsum" />
     </div>
     <div class="p-7">

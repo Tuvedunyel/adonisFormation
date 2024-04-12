@@ -1,0 +1,17 @@
+@layout({ title: 'Directors' })
+  @slot('meta')
+    <meta name="description" content="Nos directeurs" />
+  @endslot
+
+  <div class="max-w-[75%] mx-auto mt-6">
+      <div class="w-full mb-[40px]">
+      <h1 class="text-[40px] mb-[25px]">Directors</h1>
+
+    <ul>
+    @each(director in directors)
+      <li><a href="{{ route('directors.show', { id: director.id }) }}">{{ director.fullName }}</a></li>
+    @endeach
+    </ul>
+    </div>
+  </div>
+@end

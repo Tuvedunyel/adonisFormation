@@ -1,0 +1,17 @@
+@layout({ title: director.fullName })
+  @slot('meta')
+    <meta name="description" content="Nos directeurs" />
+  @endslot
+
+  <div class="max-w-[75%] mx-auto mt-6">
+      <div class="w-full mb-[40px]">
+      <h1 class="text-[40px] mb-[25px]">Director {{ director.fullName }}</h1>
+
+   <div class="w-full grid grid-cols-3 gap-3">
+                    @each(movie in movies)
+                      @!movie.card({ movie, class: 'w-full' })
+                    @end
+                   </div>
+    </div>
+  </div>
+@end
