@@ -21,13 +21,13 @@ export default class extends BaseSeeder {
       const released = DateTime.now().set({ year: movie.releaseYear })
 
       row.title = movie.title
+
       row.releasedAt = DateTime.fromJSDate(
         faker.date.between({
           from: released.startOf('year').toJSDate(),
           to: released.endOf('year').toJSDate(),
         })
       )
-
       index++
     }).createMany(movies.length)
 

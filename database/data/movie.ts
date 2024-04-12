@@ -737,7 +737,7 @@ export const movies = [
   },
   {
     title: 'Into the Arms of Strangers: Stories of the Kindertransport',
-    releaseYear: 2000,
+    releaseYear: 2001,
   },
   {
     title: 'Intolerance',
@@ -849,7 +849,7 @@ export const movies = [
   },
   {
     title: 'Memento',
-    releaseYear: 2000,
+    releaseYear: 2001,
   },
   {
     title: 'Memphis Belle',

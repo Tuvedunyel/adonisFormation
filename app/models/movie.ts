@@ -31,7 +31,9 @@ export default class Movie extends BaseModel {
   @column()
   declare posterUrl: string
   @column.dateTime()
-  declare releasedAt: DateTime | null
+  declare releasedAt:
+    | IfValid<string, 'Invalid DateTime', Valid>
+    | IfValid<string, 'Invalid DateTime', Invalid>
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
   @column.dateTime({ autoCreate: true, autoUpdate: true })
