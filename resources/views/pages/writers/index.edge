@@ -1,0 +1,24 @@
+@layout({ title: 'Writers' })
+  @slot('meta')
+    <meta name="description" content="Nos directeurs" />
+  @endslot
+
+  <div class="max-w-[75%] mx-auto mt-6">
+      <div class="w-full mb-[40px]">
+      <h1 class="text-[40px] mb-[25px]">Writers</h1>
+
+    <ul>
+    @each(writer in writers)
+      <li>
+        <a href="{{ route('writers.show', { id: writer.id }) }}">
+          {{ writer.fullName }}
+          <span class="text-slate-400">
+            ( {{ writer.$extras.releasedCount }} released, {{ writer.$extras.notReleasedCount }} not released )
+          </span>
+        </a>
+      </li>
+    @endeach
+    </ul>
+    </div>
+  </div>
+@end

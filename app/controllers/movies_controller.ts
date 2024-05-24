@@ -6,12 +6,16 @@ export default class MoviesController {
   async index({ view }: HttpContext) {
     const comingSoon = await Movie.query()
       .apply((scope) => scope.notReleased())
+      .preload('director')
+      .preload('writer')
       .whereNotNull('releasedAt')
       .orderBy('releasedAt')
       .limit(3)
 
     const recentlyReleased = await Movie.query()
       .apply((scope) => scope.released())
+      .preload('director')
+      .preload('writer')
       .orderBy('releasedAt', 'desc')
       .limit(5)
       .limit(9)
@@ -27,6 +31,9 @@ export default class MoviesController {
 
     // const movie = await Movie.find(params.id)
     const movie = await Movie.findByOrFail('slug', params.slug)
+
+    await movie.load('director')
+    await movie.load('writer')
 
     view.share({ movie })
 

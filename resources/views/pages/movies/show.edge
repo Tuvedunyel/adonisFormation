@@ -6,6 +6,22 @@
 
     <div class="max-w-3xl mx-auto mt-6">
       <h1>{{ movie.title }}</h1>
+
+      <dl class="text-xs py-4">
+            <div class="flex">
+                <dt class="w-16">Writer : </dt>
+                <dd>
+                    <a href="{{ route('writers.show', { id: movie.writer.id })}}">{{ movie.writer.fullName }}</a>
+                </dd>
+            </div>
+            <div class="flex">
+                <dt class="w-16">Director : </dt>
+                <dd>
+                    <a href="{{ route('directors.show', { id: movie.director.id })}}">{{ movie.director.fullName }}</a>
+                </dd>
+            </div>
+        </dl>
+
       @if (movie.abstract)
         <div class="m-8 bg-slate-100 rounded-xl p-8">
           {{{ movie.abstract }}}

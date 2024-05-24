@@ -1,9 +1,11 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, computed, hasMany } from '@adonisjs/lucid/orm'
+import { BaseModel, column, computed, hasMany, manyToMany } from '@adonisjs/lucid/orm'
 import Movie from '#models/movie'
-import type { HasMany } from '@adonisjs/lucid/types/relations'
+import type { HasMany, ManyToMany } from '@adonisjs/lucid/types/relations'
 
 export default class Cineast extends BaseModel {
+  serializeExtras = true
+
   @column({ isPrimary: true })
   declare id: number
 
@@ -31,6 +33,19 @@ export default class Cineast extends BaseModel {
     foreignKey: 'writerId',
   })
   declare moviesWritten: HasMany<typeof Movie>
+
+  @manyToMany(() => Movie, {
+    pivotTable: 'crew_movies',
+    pivotTimestamps: true,
+  })
+  declare crewMovies: ManyToMany<typeof Movie>
+
+  @manyToMany(() => Movie, {
+    pivotTable: 'cast_movies',
+    pivotColumns: ['character_name', 'sort_order'],
+    pivotTimestamps: true,
+  })
+  declare castMovies: ManyToMany<typeof Movie>
 
   @computed()
   get fullName() {

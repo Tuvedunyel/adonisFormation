@@ -10,7 +10,7 @@
 
             <div class="w-full grid grid-cols-3 gap-3">
              @each(movie in comingSoon)
-               @!movie.card({ movie, class: 'w-full' })
+               @!movie.card({ movie, class: 'w-full', showWritterDirector: true })
    {{--            @!component('components/movie/card', { movie, class: 'w-full' } )--}}
              @end
             </div>
@@ -20,7 +20,7 @@
 
          <div class="w-full grid grid-cols-3 gap-3">
           @each(movie in recentlyReleased)
-            @!movie.card({ movie, class: 'w-full' })
+            @!movie.card({ movie, class: 'w-full', showWritterDirector: true })
 {{--            @!component('components/movie/card', { movie, class: 'w-full' } )--}}
           @end
          </div>
